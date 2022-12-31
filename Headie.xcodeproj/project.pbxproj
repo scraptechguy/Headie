@@ -96,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				90EBDBA52960477D001F9FBF /* HomeView.swift */,
+				90EBDBB129604A98001F9FBF /* Compass */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -106,6 +107,13 @@
 				90EBDBAD296049E1001F9FBF /* OnboardingView.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		90EBDBB129604A98001F9FBF /* Compass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Compass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
