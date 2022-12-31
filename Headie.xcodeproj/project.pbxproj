@@ -14,6 +14,7 @@
 		90EBDBA9296047F3001F9FBF /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBDBA8296047F3001F9FBF /* LaunchView.swift */; };
 		90EBDBAC29604860001F9FBF /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBDBAB29604860001F9FBF /* ContentModel.swift */; };
 		90EBDBAE296049E1001F9FBF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBDBAD296049E1001F9FBF /* OnboardingView.swift */; };
+		90EBDBB329604CD3001F9FBF /* Compass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBDBB229604CD3001F9FBF /* Compass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		90EBDBA8296047F3001F9FBF /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		90EBDBAB29604860001F9FBF /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		90EBDBAD296049E1001F9FBF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		90EBDBB229604CD3001F9FBF /* Compass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		90EBDBB129604A98001F9FBF /* Compass */ = {
 			isa = PBXGroup;
 			children = (
+				90EBDBB229604CD3001F9FBF /* Compass.swift */,
 			);
 			path = Compass;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			files = (
 				90EBDB98295DE9B1001F9FBF /* HeadieApp.swift in Sources */,
 				90EBDBAC29604860001F9FBF /* ContentModel.swift in Sources */,
+				90EBDBB329604CD3001F9FBF /* Compass.swift in Sources */,
 				90EBDBA9296047F3001F9FBF /* LaunchView.swift in Sources */,
 				90EBDBAE296049E1001F9FBF /* OnboardingView.swift in Sources */,
 				90EBDBA62960477D001F9FBF /* HomeView.swift in Sources */,
