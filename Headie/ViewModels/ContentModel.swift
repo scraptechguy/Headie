@@ -14,70 +14,72 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     // MARK: - Location
       
-      var locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
 
-      @Published var authorizationState = CLAuthorizationStatus.notDetermined
-      @Published var placemark: CLPlacemark?
+    @Published var authorizationState = CLAuthorizationStatus.notDetermined
+    @Published var placemark: CLPlacemark?
+
+    override init() {
       
-      override init() {
+      // Init method of NSObject
+      super.init()
+      
+      // Make ContentModel the delegate of the location manager
+      locationManager.delegate = self
+      
+    }
+
+    // Request permission
+    func requestGeolocationPermission() {
+      
+      locationManager.requestWhenInUseAuthorization()
+      
+    }
+
+
+
+    // MARK - Location Manager Delegate Methods
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+      
+      authorizationState = locationManager.authorizationStatus
+      
+      if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
           
-          // Init method of NSObject
-          super.init()
+          locationManager.startUpdatingLocation()
           
-          // Make ContentModel the delegate of the location manager
-          locationManager.delegate = self
+      } else if locationManager.authorizationStatus == .denied {
+          
+          
           
       }
       
-      // Request permission
-      func requestGeolocationPermission() {
-          
-          locationManager.requestWhenInUseAuthorization()
-          
-      }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
       
-      // MARK - Location Manager Delegate Methods
+      let userLocation = locations.first
       
-      func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+      if userLocation != nil {
           
-          authorizationState = locationManager.authorizationStatus
+          // Stop updating location after received once
+          locationManager.stopUpdatingLocation()
           
-          if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
-              
-              locationManager.startUpdatingLocation()
-              
-          } else if locationManager.authorizationStatus == .denied {
-              
-              
-              
-          }
+          // Get the placemark of the user
+          let geoCoder = CLGeocoder()
           
-      }
-      
-      func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-          
-          let userLocation = locations.first
-          
-          if userLocation != nil {
+          geoCoder.reverseGeocodeLocation(userLocation!) { (placemarks, error) in
               
-              // Stop updating location after received once
-              locationManager.stopUpdatingLocation()
-              
-              // Get the placemark of the user
-              let geoCoder = CLGeocoder()
-              
-              geoCoder.reverseGeocodeLocation(userLocation!) { (placemarks, error) in
+              // Check for errors
+              if error == nil && placemarks != nil {
                   
-                  // Check for errors
-                  if error == nil && placemarks != nil {
-                      
-                      self.placemark = placemarks?.first
-                      
-                  }
+                  self.placemark = placemarks?.first
+                  
               }
-              
           }
           
       }
+      
+    }
     
 }
