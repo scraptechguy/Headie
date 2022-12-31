@@ -21,18 +21,18 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
 
     override init() {
       
-      // Init method of NSObject
-      super.init()
-      
-      // Make ContentModel the delegate of the location manager
-      locationManager.delegate = self
+        // Init method of NSObject
+        super.init()
+
+        // Make ContentModel the delegate of the location manager
+        locationManager.delegate = self
       
     }
 
     // Request permission
     func requestGeolocationPermission() {
       
-      locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization()
       
     }
 
@@ -42,25 +42,25 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
       
-      authorizationState = locationManager.authorizationStatus
-      
-      if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
+        authorizationState = locationManager.authorizationStatus
+
+        if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
           
           locationManager.startUpdatingLocation()
           
-      } else if locationManager.authorizationStatus == .denied {
+        } else if locationManager.authorizationStatus == .denied {
           
           
           
-      }
+        }
       
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
       
-      let userLocation = locations.first
+        let userLocation = locations.first
       
-      if userLocation != nil {
+        if userLocation != nil {
           
           // Stop updating location after received once
           locationManager.stopUpdatingLocation()
@@ -78,7 +78,7 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
               }
           }
           
-      }
+        }
       
     }
     
