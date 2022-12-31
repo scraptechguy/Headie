@@ -78,8 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				90EBDBA8296047F3001F9FBF /* LaunchView.swift */,
-				90EBDBA52960477D001F9FBF /* HomeView.swift */,
-				90EBDBAD296049E1001F9FBF /* OnboardingView.swift */,
+				90EBDBB029604A12001F9FBF /* Onboarding */,
+				90EBDBAF29604A09001F9FBF /* Home */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -90,6 +90,22 @@
 				90EBDBAB29604860001F9FBF /* ContentModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		90EBDBAF29604A09001F9FBF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				90EBDBA52960477D001F9FBF /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		90EBDBB029604A12001F9FBF /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				90EBDBAD296049E1001F9FBF /* OnboardingView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
